@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Install Minecraft, Mods (NeoForge), and Join [Your Server Name]</title>
+    <style>
+        /* CSS styles: Maintain readability */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+        .container {
+            max-width: 950px;
+            margin: auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        }
+        h1 {
+            color: #4CAF50;
+            text-align: center;
+            border-bottom: 4px double #4CAF50;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #d9534f; /* Highlight main steps */
+            margin-top: 35px;
+            border-left: 6px solid #d9534f;
+            padding-left: 15px;
+        }
+        h3 {
+             color: #007bff; /* Highlight launcher options */
+             margin-top: 25px;
+             border-bottom: 2px solid #007bff;
+             padding-bottom: 5px;
+        }
+        .step {
+            margin-bottom: 25px;
+            padding: 18px;
+            background: #e9ecef;
+            border-radius: 8px;
+        }
+        .step strong {
+            color: #2c3e50;
+        }
+        .screenshot {
+            display: block;
+            max-width: 100%;
+            height: auto;
+            margin: 15px 0;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+        }
+        .important {
+            background-color: #fff3cd;
+            border-left: 5px solid #ffc107;
+            padding: 10px;
+            margin-top: 15px;
+        }
+        .choice-section {
+            display: flex;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .choice-option {
+            flex: 1;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            background-color: #f8f8f8;
+            transition: all 0.3s;
+        }
+        .choice-option:hover {
+            box-shadow: 0 0 10px rgba(0, 123, 255, 0.2);
+            transform: translateY(-2px);
+        }
+        /* Little Skin section style, as independent bottom chapter */
+        .skin-section {
+            background-color: #e6f7ff; 
+            border: 2px solid #3399ff; 
+            padding: 30px;
+            margin-top: 50px; 
+            border-radius: 10px;
+        }
+        .skin-section h2 {
+            color: #3399ff;
+            border-left: 6px solid #3399ff;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>🚀 [Your Server Name] Modpack Installation Guide (NeoForge)</h1>
+
+    <p>Welcome to our private server! This guide will detail how to install the **NeoForge core** and all required **mods**. You can choose to use either the **Official Launcher** or the **PCL2 Launcher** to complete the installation.</p>
+    <p class="important"><strong>Please Note:</strong> Our server core version is **Minecraft [Your Server Version, e.g., 1.21.1]**. Ensure all installations are based on this version.</p>
+
+    <h2>1️⃣ Step One: Prepare Necessary Files</h2>
+    <div class="step">
+        <p><strong>1.1 Java Environment:</strong></p>
+        <p>Ensure your computer has the required Java version for the server, e.g., **Java [Version number, e.g., 17 or 21]**.</p>
+        <ul>
+            <li>**Download Link:** <a href="https://www.oracle.com/java/technologies/javase/jdk21-archive-downloads.html" target="_blank">Official Java Download (21)</a></li>
+        </ul>
+
+        <p><strong>1.2 NeoForge Installer:</strong></p>
+        <p>We need the NeoForge installer to inject mod-loading capability into Minecraft. Download this file.</p>
+        <ul>
+            <li>**Download Link:** <a href="https://neoforged.net/" target="_blank">NeoForge Official Download (Select [1.21.1])</a></li>
+            <li class="important">💡 **Hint:** This should be a `.jar` file after download.</li>
+        </ul>
+
+        <p><strong>1.3 Modpack:</strong></p>
+        <p>Download our server modpack (contains all necessary `.jar` files).</p>
+        <ul>
+            <li>**Download Link:** <a href="[Your modpack zip or folder share link]" target="_blank">Click to download the modpack</a></li>
+        </ul>
+    </div>
+
+    <h2>2️⃣ Step Two: Choose Launcher and Install NeoForge Core</h2>
+    <p>Please choose your preferred launcher below and follow the steps:</p>
+
+    <div class="choice-section">
+        <div class="choice-option">
+            <h3>A. Official Launcher (Minecraft Launcher)</h3>
+            <p><strong>Step A.1: Install NeoForge</strong></p>
+            <ol>
+                <li>**Close** the Official Launcher.</li>
+                <li>**Run** the NeoForge `.jar` installer you downloaded in Step 1.2.</li>
+                <li>In the popup window, select **“Install client”**, and ensure the installation path is your default Minecraft path. Click **“Proceed”**.</li>
+            </ol>
+            <img class="screenshot" src="pic/install_neoforge.png" alt="NeoForge Installer running interface, selecting Install client">
+
+            <p><strong>Step A.2: Check Installation</strong></p>
+            <ol start="4">
+                <li>Open the Official Launcher.</li>
+                <li>On the **“Installations”** page, you should see a new profile named <code>NeoForge [Version number]</code>.</li>
+                <li>**Launch** this new profile for the first time to allow it to download all files. After reaching the main menu, **close the game**.</li>
+            </ol>
+            <img class="screenshot" src="pic/3.png" alt="Official Launcher Installations page showing NeoForge profile">
+
+            <p><strong>Step A.3: Locate the Mods Folder (Crucial)</strong></p>
+            <ol start="7">
+                <li>Go back to the launcher **“Installations”** page and click the **Folder icon** next to your NeoForge profile.</li>
+                <li>In the opened folder, find and enter the folder named **<code>mods</code>** (create one manually if it doesn't exist).</li>
+            </ol>
+            <img class="screenshot" src="pic/mod1.png" alt="Clicking the folder icon on the Official Launcher">
+        </div>
+
+        <div class="choice-option">
+            <h3>B. PCL2 Launcher</h3>
+            <p><strong>Step B.1: Install PCL2</strong></p>
+            <p>Download and extract the PCL2 Launcher to a location you can easily find.</p>
+            <ul>
+                <li>**Download Link:** <a href="https://github.com/PCL-Community/PCL2-CE" target="_blank">PCL2 Official Website Download</a></li>
+            </ul>
+
+            <p><strong>Step B.2: Create New Instance and Install Core</strong></p>
+            <ol>
+                <li>Run PCL2 and click **“下载 (Download)”**.</li>
+                <img class="screenshot" src="pic/pcl1.1.png" alt="PCL2 Download interface">
+                <li>Select **Minecraft Version:** Official release <code>[1.21.1]</code>.</li>
+                <img class="screenshot" src="pic/pcl1.2.png" alt="PCL2 Download interface, selecting 1.20.1 ">
+                <li>**Core:** Select **<code>NeoForge</code>**.</li>
+                <img class="screenshot" src="pic/pcl2.png" alt="PCL2 Download interface, selecting 1.20.1 ">
+                <li>Click **“开始下载 (Start Download)”**.</li>
+            </ol>
+            <img class="screenshot" src="pic/pcl3.png" alt="PCL2 Configuration interface, selecting 1.20.1 and NeoForge">
+
+            <p><strong>Step B.3: Locate the Mods Folder (Crucial)</strong></p>
+            <ol start="5">
+                <li>Select the instance you just created and click the **“版本设置 (Version Settings)”** button on the right.</li>
+            </ol>
+            <img class="screenshot" src="pic/pcl1.png" alt="PCL2 interface, highlighting Version Settings">
+            <ol start="6">
+                <li>In the "Version Settings" window that pops up, find and click the **“打开MOD文件夹 (Open MOD Folder)”** button.</li>
+            </ol>
+            <img class="screenshot" src="pic/select2.png" alt="Version Settings window, highlighting Open MOD Folder button">
+
+            <ol start="7">
+            <li>In the opened folder, extract and copy the downloaded mods into the **<code>mods</code>** folder (create one manually if it doesn't exist).</li>
+            </ol>
+        </div>
+    </div>
+    
+    <h2>3️⃣ Step Three: Place Mods into the Mods Folder (Universal Step)</h2>
+    <div class="step">
+        <p><strong>3.1 Copy Mods:</strong></p>
+        <p>Regardless of whether you chose Launcher A or B, you have now located the correct **<code>mods</code>** folder.</p>
+        <p>Copy and paste **all the `.jar` files** from the modpack you downloaded in **Step 1.3** into this **<code>mods</code>** folder.</p>
+        
+        <p class="important">⚠️ **IMPORTANT:** Make sure you are placing the **`.jar` files**, not the entire zipped folder!</p>
+        <img class="screenshot" src="pic/mod.png" alt="Mods folder content with all .jar mod files">
+    </div>
+
+    <h2>4️⃣ Step Four: Launch Game and Join Server</h2>
+    <div class="step">
+        <p><strong>4.1 Launch Game:</strong></p>
+        <p>Use the NeoForge profile you configured to launch the game. **(Note: If you are using a Little Skin account, complete the additional setup in Section 5 below first!)**</p>
+
+        <p><strong>4.2 Join Multiplayer:</strong></p>
+        <p>Once you reach the Minecraft main menu, click **“Multiplayer”**.</p>
+        <img class="screenshot" src="images/mc_multiplayer.jpg" alt="Minecraft main menu, clicking Multiplayer">
+
+        <p><strong>4.3 Add Server:</strong></p>
+        <p>Click **“Add Server”** at the bottom, then enter the following information:</p>
+        <ul>
+            <li>**Server Name:** <code>[Your Server Name]</code></li>
+            <li>**Server Address:** <code>[Your Server IP Address]</code></li>
+        </ul>
+        <img class="screenshot" src="images/mc_add_server.jpg" alt="Add Server interface, entering IP address">
+
+        <p><strong>4.4 Start Playing!</strong></p>
+        <p>Click **“Done”**, select your server, and click **“Join Server”**!</p>
+    </div>
+    
+    
+    <div class="skin-section">
+        <h2>✅ Supplement: Third-Party Login (Little Skin) Tutorial</h2>
+
+        <p>If you wish to use a custom skin on the server and utilize our third-party authentication system, please follow these steps for registration and login.</p>
+
+        <h3>5.1 Register a Little Skin Account</h3>
+        <p>This will be your **in-game account** for joining the server. Please visit the Little Skin official website to register.</p>
+        <ol>
+            <li>Visit the <a href="https://littleskin.cn/" target="_blank">Little Skin Official Website</a>.</li>
+            <li>Click register, and set your **Username** and **Password**.</li>
+            <li>**Remember:** This username and password will be used for launcher login.</li>
+        </ol>
+        <img class="screenshot" src="pic/littleskin.png" alt="Little Skin Registration Page">
+
+        <h3>5.2 PCL2 Launcher Login Setup (PCL2 Required)</h3>
+        <p>You must select Little Skin authentication in the PCL2 launcher to enter the server.</p>
+
+        <ol>
+            <li>Click the **“版本设置 (Version Settings)”** button at the bottom left of the PCL2 launcher.</li>
+            <img class="screenshot" src="pic/login1.png" alt="Clicking the Version Settings button at the bottom">
+            <li>Select **“第三方认证 (Third-Party Authentication)”**, and choose **“Little Skin (小黑皮肤站)”** as the Authentication Server.</li>
+            <img class="screenshot" src="pic/login2.png" alt="Selecting Third-Party Authentication interface">
+            <img class="screenshot" src="pic/login3.png" alt="Confirmation 1">
+            <img class="screenshot" src="pic/login3.1.png" alt="Confirmation 2">
+            <li>Enter the Little Skin **Username** and **Password** you registered in Step 5.1, and click Login.</li>
+        </ol>
+        <p class="important">The Official Launcher does not support Little Skin authentication. Ensure you complete this step in PCL2.</p>
+        <img class="screenshot" src="pic/login4.png" alt="PCL2 Launcher selecting Little Skin Login interface">
+
+        <p>Once set up, please return to **Step Four** to launch the game.</p>
+    </div>
+    </div>
+
+</body>
+</html>

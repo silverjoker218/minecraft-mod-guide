@@ -1,0 +1,51 @@
+[
+    {
+        "name": "JEI (Just Enough Items)",
+        "description": "物品查询与合成指南。"
+    },
+    {
+        "name": "JourneyMap",
+        "description": "小地图和世界地图。"
+    },
+    {
+        "name": "Sophisticated Backpacks",
+        "description": "复杂升级背包。"
+    },
+    {
+        "name": "Applied Energistics 2 (AE2)",
+        "description": "自动化与物品存储。"
+    },
+    {
+        "name": "Create",
+        "description": "机械自动化与装饰。"
+    },
+    {
+        "name": "Comforts",
+        "description": "添加睡袋和吊床。"
+    },
+    {
+        "name": "Iron Chests",
+        "description": "升级版的箱子。"
+    },
+    {
+        "name": "Building Wands",
+        "description": "快速放置方块。"
+    },
+    {
+        "name": "The Twilight Forest",
+        "description": "暮色森林维度。"
+    },
+    {
+        "name": "Waystones",
+        "description": "快速传送路标。"
+    },
+    {
+        "name": "Neat",
+        "description": "怪物血条显示。"
+    },
+    {
+        "name": "Mouse Tweaks",
+        "description": "改进物品拖拽操作。"
+    }
+ 
+]

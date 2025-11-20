@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="page-title">正在加载...</title>
+    <style>
+        /* Base CSS Styles (保持不变) */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f9;
+            color: #333;
+            opacity: 0;
+            animation: fadeIn 1s forwards;
+            position: relative;
+            overflow-x: hidden;
+        }
+        .container {
+            max-width: 950px;
+            margin: auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+            position: relative;
+            z-index: 10;
+        }
+        h1 {
+            color: #4CAF50;
+            text-align: center;
+            border-bottom: 4px double #4CAF50;
+            padding-bottom: 10px;
+            transform: scale(0.9);
+            animation: popIn 0.8s forwards 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+            opacity: 0;
+        }
+        h2 {
+            color: #d9534f;
+            margin-top: 35px;
+            border-left: 6px solid #d9534f;
+            padding-left: 15px;
+            transition: transform 0.3s ease-out;
+        }
+        h2:hover {
+            transform: translateX(5px);
+        }
+        h3 {
+             color: #007bff;
+             margin-top: 25px;
+             border-bottom: 2px solid #007bff;
+             padding-bottom: 5px;
+        }
+        .step {
+            margin-bottom: 25px;
+            padding: 18px;
+            background: #e9ecef;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .step:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+        }
+        .step strong {
+            color: #2c3e50;
+        }
+        .screenshot {
+            display: block;
+            max-width: 100%;
+            height: auto;
+            margin: 15px 0;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            transition: transform 0.2s ease;
+            cursor: pointer;
+        }
+        .screenshot:hover {
+            transform: scale(1.01);
+            filter: brightness(1.1);
+        }
+        .important {
+            background-color: #fff3cd;
+            border-left: 5px solid #ffc107;
+            padding: 10px;
+            margin-top: 15px;
+            border-radius: 5px;
+            animation: pulseShadow 2s infinite alternate;
+        }
+        .choice-section {
+            display: flex;
+            gap: 20px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+        .choice-option {
+            flex: 1;
+            min-width: 300px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            background-color: #f8f8f8;
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+        }
+        .choice-option:hover {
+            box-shadow: 0 8px 18px rgba(0, 123, 255, 0.25);
+            transform: translateY(-8px);
+        }
+        .skin-section {
+            background-color: #e6f7ff; 
+            border: 2px solid #3399ff; 
+            padding: 30px;
+            margin-top: 50px; 
+            border-radius: 10px;
+            box-shadow: 0 6px 15px rgba(51, 153, 255, 0.2);
+        }
+        .skin-section h2 {
+            color: #3399ff;
+            border-left: 6px solid #3399ff;
+        }
+        a {
+            color: #007bff;
+            text-decoration: none;
+            transition: color 0.3s ease, text-decoration 0.3s ease;
+        }
+        a:hover {
+            color: #0056b3;
+            text-decoration: underline;
+        }
+        
+        /* MOD LIST Collapsible Styles */
+        .mod-list-section {
+            margin-top: 20px;
+            margin-bottom: 20px; 
+        }
+        .collapsible {
+            background-color: #3498db;
+            color: white;
+            cursor: pointer;
+            padding: 18px;
+            width: 100%;
+            border: none;
+            text-align: left;
+            outline: none;
+            font-size: 18px;
+            transition: 0.4s;
+            border-radius: 6px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .active, .collapsible:hover {
+            background-color: #2980b9;
+        }
+        
+        .collapsible::after {
+            content: '▶'; 
+            font-weight: bold;
+            transition: transform 0.3s ease;
+            margin-left: 10px;
+        }
+
+        .active::after {
+            content: '▼'; 
+        }
+
+        .collapsible-content {
+            padding: 0 18px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            background-color: #f9f9f9;
+            border-left: 2px solid #3498db;
+            border-right: 2px solid #3498db;
+            border-bottom: 2px solid #3498db;
+            border-radius: 0 0 6px 6px;
+        }
+        
+        .mod-list {
+            list-style-type: none;
+            padding: 10px 0;
+            columns: 2; 
+            column-gap: 30px;
+        }
+        .mod-list li {
+            padding: 5px 0;
+            border-bottom: 1px dotted #ddd;
+        }
+        .mod-list li strong {
+            color: #c0392b; 
+        }
+        /* Modal, Minecraft Elements 和 Keyframe 动画样式保持不变... */
+        /* ... */
+        
+        /* Keyframe Animations (保持不变) */
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes popIn {
+            from { transform: scale(0.8); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+        @keyframes pulseShadow {
+            0% { box-shadow: 0 0 0px rgba(255,193,7,0.4); }
+            50% { box-shadow: 0 0 10px rgba(255,193,7,0.7); }
+            100% { box-shadow: 0 0 0px rgba(255,193,7,0.4); }
+        }
+        @keyframes fallAndFade {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 0;
+                left: var(--start-left);
+            }
+            10% { opacity: 0.3; } 
+            90% { opacity: 0.1; }
+            100% {
+                transform: translateY(calc(100vh + 150px)) rotate(720deg); 
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body onload="loadData()">
+
+<div class="container">
+    <h1 id="server-title">🚀 [服务器名称] 模组服安装指南 (NeoForge)</h1>
+
+    <p>欢迎来到我们的私密服务器！本指南将详细教您如何安装 **NeoForge 核心** 和所有必需的**模组**。您可以选择使用 **官方启动器** 或 **PCL2 启动器** 来完成安装。</p>
+    <p class="important"><strong>请注意：</strong> 我们的服务器核心版本为 <strong>Minecraft <span id="mc-version">[版本号]</span></strong>，请确保所有安装都基于此版本。</p>
+
+    <div class="mod-list-section">
+        <button class="collapsible">
+            点击展开/收起 📜 服务器必需模组列表 (<span id="mod-count">0</span> 个 Mod)
+        </button>
+        <div class="collapsible-content">
+            <p>以下是您必须下载并安装的模组列表。所有模组都已包含在 **1.3 步**的模组包中。</p>
+            <ul class="mod-list" id="mod-list-container">
+                </ul>
+            <p class="important">请确保您 Mods 文件夹中的 `.jar` 文件与列表中的模组对应。</p>
+        </div>
+    </div>
+    <h2>1️⃣ 第一步：准备所需文件</h2>
+    <div class="step">
+        <p><strong>1.1 Java 环境：</strong></p>
+        <p>请确保您的电脑安装了服务器版本所需的 Java，例如 **Java <span id="java-version">[版本号]</span>**。</p>
+        <ul>
+            <li>**下载链接：** <a id="link-java" href="#" target="_blank">Java官方下载 (<span id="java-version-link">[版本号]</span>)</a></li>
+        </ul>
+
+        <p><strong>1.2 NeoForge 安装器：</strong></p>
+        <p>我们需要 NeoForge 安装器来为 Minecraft 注入 Mod 加载能力。请下载此文件。</p>
+        <ul>
+            <li>**下载链接：** <a id="link-neoforge" href="#" target="_blank">NeoForge 官方下载 (选择 <span id="neoforge-mc-version">[版本号]</span>)</a></li>
+            <li class="important">💡 **提示：** 下载后它应该是一个 `.jar` 文件。</li>
+        </ul>
+
+        <p><strong>1.3 模组包：</strong></p>
+        <p>请下载我们的服务器模组包（包含所有必需的 `.jar` 文件）。</p>
+        <ul>
+            <li>**下载链接：** <a id="link-modpack" href="#" target="_blank">点击下载模组包</a></li>
+        </ul>
+    </div>
+
+    <h2>2️⃣ 第二步：选择启动器并安装 NeoForge 核心</h2>
+    <p>请在下方选择您偏好的启动器，并按步骤操作：</p>
+
+    <div class="choice-section">
+        <div class="choice-option">
+            <h3>A. 官方启动器 (Minecraft Launcher)</h3>
+            <p><strong>步骤 A.1：安装 NeoForge</strong></p>
+            <ol>
+                <li><strong>关闭</strong> 官方启动器。</li>
+                <li><strong>运行</strong> 您在 1.2 步下载的 NeoForge `.jar` 安装器。</li>
+                <li>在弹出的窗口中，选择 **“Install client”** (客户端安装)，并确保安装路径是您的 Minecraft 默认路径。点击 **“Proceed”**。</li>
+            </ol>
+            <img class="screenshot" src="pic/install_neoforge.png" alt="NeoForge 安装器运行界面，选择 Install client">
+
+            <p><strong>步骤 A.2：检查安装</strong></p>
+            <ol start="4">
+                <li>打开官方启动器。</li>
+                <li>在 **“安装 (Installations)”** 页面，您应该能看到一个名为 <code>NeoForge [版本号]</code> 的新配置文件。</li>
+                <li><strong>首次启动</strong> 这个新配置，让它下载所有文件。看到主菜单后，**关闭游戏**。</li>
+            </ol>
+            <img class="screenshot" src="pic/3.png" alt="官方启动器安装页面显示 NeoForge 配置文件">
+
+            <p><strong>步骤 A.3：找到 Mods 文件夹 (关键)</strong></p>
+            <ol start="7">
+                <li>回到启动器 **“安装 (Installations)”** 页面，点击您 NeoForge 配置文件右边的 **文件夹图标**。</li>
+                <li>在弹出的文件夹中，找到并进入名为 **<code>mods</code>** 的文件夹（如果没有，请手动新建一个）。</li>
+            </ol>
+            <img class="screenshot" src="pic/mod1.png" alt="官方启动器上点击文件夹图标">
+        </div>
+
+        <div class="choice-option">
+            <h3>B. PCL2 启动器</h3>
+            <p><strong>步骤 B.1：安装 PCL2</strong></p>
+            <p>请下载并解压缩 PCL2 启动器到您容易找到的位置。</p>
+            <ul>
+                <li>**下载链接：** <a id="link-pcl2" href="#" target="_blank">PCL2 官方网站下载</a></li>
+            </ul>
+
+            <p><strong>步骤 B.2：创建新实例并安装核心</strong></p>
+            <ol>
+                <li>运行 PCL2，点击 **“下载”**。</li>
+                <img class="screenshot" src="pic/pcl1.1.png" alt="PCL2 下载界面">
+                <li>选择**Minecraft 版本：** 正式版 <code id="pcl2-mc-version">[版本号]</code>。</li>
+                <img class="screenshot" src="pic/pcl1.2.png" alt="PCL2 下载界面，选择 1.20.1 ">
+                <li>**核心：** 选择 **<code>NeoForge</code>**。</li>
+                <img class="screenshot" src="pic/pcl2.png" alt="PCL2 下载界面，选择 1.20.1 ">
+                <li>点击 **“开始下载”**。</li>
+            </ol>
+            <img class="screenshot" src="pic/pcl3.png" alt="PCL2 配置界面，选择 1.20.1 和 NeoForge">
+
+            <p><strong>步骤 B.3：找到 Mods 文件夹 (关键)</strong></p>
+            <ol start="5">
+                <li>选中您刚创建的实例，点击右侧的 **“版本设置”** 按钮。</li>
+            </ol>
+            <img class="screenshot" src="pic/pcl1.png" alt="PCL2 界面，圈出打开版本设置">
+            <ol start="6">
+                <li>在弹出的“版本设置”窗口中，找到并点击 **“打开MOD文件夹”** 按钮。</li>
+            </ol>
+            <img class="screenshot" src="pic/select2.png" alt="版本设置窗口中，圈出打开MOD文件夹按钮">
+
+            <ol start="7">
+            <li>在打开的文件夹中，把下载好的MOD 解压进去 **<code>mods</code>** 的文件夹（如果没有，请手动新建一个）。</li>
+            </ol>
+        </div>
+    </div>
+    
+    <h2>3️⃣ 第三步：将模组放入 Mods 文件夹 (通用步骤)</h2>
+    <div class="step">
+        <p><strong>3.1 复制模组：</strong></p>
+        <p>无论您选择了 A 还是 B 启动器，现在您已经找到了正确的 **<code>mods</code>** 文件夹。</p>
+        <p>将您在 **1.3 步**下载的模组包中的**所有 `.jar` 文件**，复制并粘贴到这个 **<code>mods</code>** 文件夹内。</p>
+        
+        <p class="important">⚠️ **注意：** 请确保您放入的是 **`.jar` 文件**，而不是整个压缩包！</p>
+        <img class="screenshot" src="pic/mod.png" alt="mods 文件夹中已放入所有 .jar 模组文件">
+    </div>
+
+    <h2>4️⃣ 第四步：启动游戏并加入服务器</h2>
+    <div class="step">
+        <p><strong>4.1 启动游戏：</strong></p>
+        <p>使用您配置好的 NeoForge 配置文件启动游戏。**（注意：如果您使用 Little Skin 账号，请先完成下面的补充设置！）**</p>
+
+        <p><strong>4.2 加入多人游戏：</strong></p>
+        <p>进入 Minecraft 主菜单后，点击 **“多人游戏 (Multiplayer)”**。</p>
+        <img class="screenshot" src="" alt="Minecraft 主菜单点击多人游戏">
+
+        <p><strong>4.3 添加服务器：</strong></p>
+        <p>点击底部的 **“添加服务器 (Add Server)”**，然后输入以下信息：</p>
+        <ul>
+            <li>**服务器名称：** <code id="server-name-display">[服务器名称]</code></li>
+            <li>**服务器地址：** <code id="server-ip-display">[服务器 IP 地址]</code></li>
+        </ul>
+        <img class="screenshot" src="" alt="添加服务器界面，填写 IP 地址">
+
+        <p><strong>4.4 开始游戏！</strong></p>
+        <p>点击 **“完成”**，选中您的服务器，点击 **“加入服务器”** 即可！</p>
+    </div>
+    
+    
+    <div class="skin-section">
+        <h2>✅ 补充：第三方登录 (Little Skin) 教程</h2>
+        <p>如果您想在服务器中使用自定义皮肤，并使用我们的第三方认证系统，请遵循以下步骤注册和登录。</p>
+
+        <h3>5.1 注册 Little Skin 账号</h3>
+        <p>这是您加入服务器的 **游戏账号**。请访问 Little Skin 官网注册。</p>
+        <ol>
+            <li>访问 <a id="link-littleskin" href="#" target="_blank">Little Skin 官网</a>。</li>
+            </ol>
+
+        <h3>5.2 PCL2 启动器登录设置 (必须使用 PCL2)</h3>
+        <p>您必须在 PCL2 启动器中选择 Little Skin 认证才能进入服务器。</p>
+        </div>
+</div>
+
+<div id="image-modal">
+    <span class="close">&times;</span>
+    <img class="modal-content" id="modal-image">
+</div>
+
+
+<script>
+    // --- 数据加载函数 (新增) ---
+    async function loadData() {
+        try {
+            // 1. 读取 config.json
+            const configResponse = await fetch('config.json');
+            const config = await configResponse.json();
+
+            // 2. 读取 modlist.json
+            const modlistResponse = await fetch('modlist.json');
+            const modlist = await modlistResponse.json();
+
+            // 3. 渲染配置数据
+            const { server, links } = config;
+
+            document.getElementById('page-title').textContent = `如何安装 Minecraft、Mod (NeoForge) 并加入 ${server.name}`;
+            document.getElementById('server-title').innerHTML = `🚀 ${server.name} 模组服安装指南 (NeoForge)`;
+            document.getElementById('mc-version').textContent = server.version;
+            document.getElementById('neoforge-mc-version').textContent = server.version;
+            document.getElementById('pcl2-mc-version').textContent = server.version;
+            document.getElementById('server-name-display').textContent = server.name;
+            document.getElementById('server-ip-display').textContent = server.ip;
+            
+            document.getElementById('java-version').textContent = server.javaVersion;
+            document.getElementById('java-version-link').textContent = server.javaVersion;
+
+
+            // 4. 渲染链接
+            document.getElementById('link-java').href = links.javaDownload;
+            document.getElementById('link-neoforge').href = links.neoforgeDownload;
+            document.getElementById('link-modpack').href = links.modpackDownload;
+            document.getElementById('link-pcl2').href = links.pcl2Download;
+            document.getElementById('link-littleskin').href = links.littleSkinWebsite;
+            
+
+            // 5. 渲染模组列表
+            const modListContainer = document.getElementById('mod-list-container');
+            let html = '';
+            modlist.forEach(mod => {
+                html += `<li><strong>${mod.name}</strong> - ${mod.description}</li>`;
+            });
+            modListContainer.innerHTML = html;
+            document.getElementById('mod-count').textContent = modlist.length;
+            
+            // 6. 初始化折叠功能（必须在内容加载后）
+            initCollapsible();
+
+        } catch (error) {
+            console.error('加载数据失败，请检查 config.json 或 modlist.json 是否存在于根目录且格式正确：', error);
+            // 可以在这里显示一个错误提示给用户
+            document.getElementById('server-title').textContent = '⚠️ 载入数据失败，请联系管理员！';
+        }
+    }
+    
+    // --- 模组列表折叠功能 JS (改为函数) ---
+    function initCollapsible() {
+        const collapsibleButton = document.querySelector('.collapsible');
+        const content = document.querySelector('.collapsible-content');
+
+        collapsibleButton.addEventListener('click', function() {
+            this.classList.toggle('active');
+            
+            if (content.style.maxHeight) {
+                content.style.maxHeight = null;
+            } else {
+                content.style.maxHeight = content.scrollHeight + "px";
+            }
+        });
+    }
+
+
+    // --- 图片放大功能 JS (保持不变) ---
+    const modal = document.getElementById('image-modal');
+    const modalImg = document.getElementById("modal-image");
+    const closeBtn = document.getElementsByClassName("close")[0];
+    const screenshots = document.querySelectorAll('.screenshot');
+
+    screenshots.forEach(img => {
+        img.addEventListener('click', function() {
+            openModal(this.src);
+        });
+    });
+
+    function openModal(src) {
+        modal.style.display = "block";
+        modalImg.src = src;
+    }
+
+    function closeModal() {
+        modal.style.display = "none";
+    }
+
+    closeBtn.onclick = closeModal;
+    
+    modal.onclick = function(event) {
+        if (event.target === modal) {
+            closeModal();
+        }
+    }
+
+
+    // --- Minecraft 掉落动画 JS (保持不变) ---
+    const entityTypes = [
+        'block', 'creeper', 'steve', 'zombie'
+    ];
+
+    function createFallingEntity() {
+        const entity = document.createElement('div');
+        const randomType = entityTypes[Math.floor(Math.random() * entityTypes.length)];
+        
+        entity.className = `minecraft-entity falling-element ${randomType}`;
+        
+        const startLeft = Math.random() * 100;
+        entity.style.setProperty('--start-left', `${startLeft}vw`);
+
+        const duration = 12 + Math.random() * 8; 
+        const delay = Math.random() * 6; 
+        entity.style.animationDuration = `${duration}s`;
+        entity.style.animationDelay = `${delay}s`;
+
+        document.body.appendChild(entity);
+
+        entity.addEventListener('animationend', () => {
+            entity.remove();
+        });
+    }
+
+    for (let i = 0; i < 10; i++) {
+        createFallingEntity();
+    }
+    setInterval(createFallingEntity, 1200); 
+</script>
+
+</body>
+</html>

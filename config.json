@@ -1,0 +1,15 @@
+{
+    "server": {
+        "name": "[您的服务器名称]",
+        "version": "[您服务器的版本，例如 1.21.1]",
+        "ip": "[您的服务器 IP 地址]",
+        "javaVersion": "[版本号，例如 21]"
+    },
+    "links": {
+        "javaDownload": "https://www.oracle.com/java/technologies/javase/jdk21-archive-downloads.html",
+        "neoforgeDownload": "https://neoforged.net/",
+        "modpackDownload": "[您的模组压缩包或文件夹的分享链接]",
+        "pcl2Download": "https://github.com/PCL-Community/PCL2-CE",
+        "littleSkinWebsite": "https://littleskin.cn/"
+    }
+}
