@@ -1,51 +1,182 @@
 [
     {
+        "name": "Hybrid Aquatic",
+        "description": "增强水生生物群落和内容。"
+    },
+    {
+        "name": "CTOV (Customizable Villages)",
+        "description": "提供更多样化的村庄结构和生成。"
+    },
+    {
+        "name": "Maid Storage Manager",
+        "description": "女仆储存管理工具。"
+    },
+    {
+        "name": "Maid Useful Task",
+        "description": "增加女仆的有用任务。"
+    },
+    {
+        "name": "Accessories",
+        "description": "添加可穿戴的饰品槽和饰品。"
+    },
+    {
+        "name": "Aether",
+        "description": "添加了一个新的天堂维度。"
+    },
+    {
+        "name": "AppleSkin",
+        "description": "显示饱食度和饥饿恢复提示。"
+    },
+    {
+        "name": "Better Combat",
+        "description": "改进战斗机制和动画。"
+    },
+    {
+        "name": "Born in Chaos",
+        "description": "增加新的生物、维度和内容，提升游戏挑战。"
+    },
+    {
+        "name": "Create",
+        "description": "强大的机械自动化和工业模组。"
+    },
+    {
+        "name": "Custom Skin Loader",
+        "description": "允许加载自定义皮肤。"
+    },
+    {
+        "name": "Deep Aether",
+        "description": "Aether模组的扩展，添加更多天堂内容。"
+    },
+    {
+        "name": "Enderscape",
+        "description": "美化和扩展末地维度。"
+    },
+    {
+        "name": "Endrem",
+        "description": "为末地增加更多遗物和挑战。"
+    },
+    {
+        "name": "Immersive Aircraft",
+        "description": "添加可驾驶的沉浸式飞行器。"
+    },
+    {
+        "name": "Immersive Lanterns",
+        "description": "增加更多种类的沉浸式灯笼。"
+    },
+    {
+        "name": "Incapacitated",
+        "description": "添加倒地机制，让玩家在生命值耗尽时不立即死亡。"
+    },
+    {
         "name": "JEI (Just Enough Items)",
         "description": "物品查询与合成指南。"
     },
     {
-        "name": "JourneyMap",
-        "description": "小地图和世界地图。"
+        "name": "Luminous Beasts",
+        "description": "增加会发光的奇特生物。"
+    },
+    {
+        "name": "Man of Many Planes",
+        "description": "可能添加了更多维度或旅行方式。"
+    },
+    {
+        "name": "Macaw's Bridges",
+        "description": "添加各种风格的桥梁。"
+    },
+    {
+        "name": "Moog's Structures",
+        "description": "增加新的结构生成。"
+    },
+    {
+        "name": "Moog's Voyager Structures",
+        "description": "进一步增加新的结构生成。"
+    },
+    {
+        "name": "Mutants & Zombies",
+        "description": "增加更强大和独特的变异僵尸。"
+    },
+    {
+        "name": "Nameless Trinkets",
+        "description": "添加各种效果的饰品。"
+    },
+    {
+        "name": "Pointblank",
+        "description": "增加了新的远程武器和战斗机制。"
+    },
+    {
+        "name": "Refurbished Furniture",
+        "description": "添加更多可用的家具和装饰品。"
+    },
+    {
+        "name": "Skin Layers 3D",
+        "description": "使皮肤的第二层显示为3D效果。"
+    },
+    {
+        "name": "Sodium Dynamic Lights",
+        "description": "手持发光物品时提供动态照明效果。"
     },
     {
         "name": "Sophisticated Backpacks",
-        "description": "复杂升级背包。"
+        "description": "功能复杂且可升级的背包。"
     },
     {
-        "name": "Applied Energistics 2 (AE2)",
-        "description": "自动化与物品存储。"
+        "name": "T&T",
+        "description": "一个功能增强类的模组。"
     },
     {
-        "name": "Create",
-        "description": "机械自动化与装饰。"
+        "name": "The Knocker",
+        "description": "增加了新的怪物和挑战。"
     },
     {
-        "name": "Comforts",
-        "description": "添加睡袋和吊床。"
+        "name": "The Submarine Mod",
+        "description": "添加潜水艇以探索海底世界。"
     },
     {
-        "name": "Iron Chests",
-        "description": "升级版的箱子。"
+        "name": "Touhou Little Maid",
+        "description": "添加了可爱的女仆，可以提供各种帮助。"
     },
     {
-        "name": "Building Wands",
-        "description": "快速放置方块。"
+        "name": "Trimmed",
+        "description": "可能增加了新的盔甲和工具的镶边定制功能。"
     },
     {
         "name": "The Twilight Forest",
-        "description": "暮色森林维度。"
+        "description": "一个大型探险模组，添加了一个充满奇幻生物和地牢的暮色森林维度。"
+    },
+    {
+        "name": "Undead Nights",
+        "description": "增加了夜晚的不死生物威胁，提升生存难度。"
     },
     {
         "name": "Waystones",
-        "description": "快速传送路标。"
+        "description": "添加路标，允许玩家在世界中快速传送。"
     },
     {
-        "name": "Neat",
-        "description": "怪物血条显示。"
+        "name": "Yung's Better Caves",
+        "description": "改善洞穴生成，使其更真实和多样。"
     },
     {
-        "name": "Mouse Tweaks",
-        "description": "改进物品拖拽操作。"
+        "name": "Yung's Better Desert Temples",
+        "description": "改善沙漠神殿，使其更有趣和有价值。"
+    },
+    {
+        "name": "Yung's Better Dungeons",
+        "description": "改善地牢生成，增加更多类型和挑战。"
+    },
+    {
+        "name": "Yung's Better Jungle Temples",
+        "description": "改善丛林神庙，使其更有趣。"
+    },
+    {
+        "name": "Yung's Better Mineshafts",
+        "description": "改善废弃矿井生成，使其更自然和复杂。"
+    },
+    {
+        "name": "Yung's Better Nether Fortresses",
+        "description": "改善下界要塞，使其更具挑战性。"
+    },
+    {
+        "name": "Yung's Better Strongholds",
+        "description": "改善要塞生成，使其更庞大和神秘。"
     }
- 
 ]
