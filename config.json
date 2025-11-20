@@ -1,9 +1,9 @@
 {
     "server": {
-        "name": "[您的服务器名称]",
-        "version": "[您服务器的版本，例如 1.21.1]",
-        "ip": "[您的服务器 IP 地址]",
-        "javaVersion": "[版本号，例如 21]"
+        "name": "[silver]",
+        "version": "[1.21.1]",
+        "ip": "[economic-metals.gl.at.ply.gg:25389]",
+        "javaVersion": "[21]"
     },
     "links": {
         "javaDownload": "https://www.oracle.com/java/technologies/javase/jdk21-archive-downloads.html",
@@ -14,3 +14,4 @@
     }
 
 }
+
