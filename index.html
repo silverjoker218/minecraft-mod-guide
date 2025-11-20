@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title id="page-title">正在加载...</title>
     <style>
-        /* Base CSS Styles (保持不变) */
+        /* Base CSS Styles */
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
@@ -112,10 +112,10 @@
             transform: translateY(-8px);
         }
         .skin-section {
-            background-color: #e6f7ff; 
-            border: 2px solid #3399ff; 
+            background-color: #e6f7ff;    
+            border: 2px solid #3399ff;    
             padding: 30px;
-            margin-top: 50px; 
+            margin-top: 50px;    
             border-radius: 10px;
             box-shadow: 0 6px 15px rgba(51, 153, 255, 0.2);
         }
@@ -133,7 +133,7 @@
             text-decoration: underline;
         }
         
-        /* MOD LIST Collapsible Styles */
+        /* ----- MOD LIST Collapsible Styles ----- */
         .mod-list-section {
             margin-top: 20px;
             margin-bottom: 20px; 
@@ -161,14 +161,14 @@
         }
         
         .collapsible::after {
-            content: '▶'; 
+            content: '▶';    
             font-weight: bold;
             transition: transform 0.3s ease;
             margin-left: 10px;
         }
 
         .active::after {
-            content: '▼'; 
+            content: '▼';    
         }
 
         .collapsible-content {
@@ -186,7 +186,7 @@
         .mod-list {
             list-style-type: none;
             padding: 10px 0;
-            columns: 2; 
+            columns: 2;    
             column-gap: 30px;
         }
         .mod-list li {
@@ -194,13 +194,100 @@
             border-bottom: 1px dotted #ddd;
         }
         .mod-list li strong {
-            color: #c0392b; 
+            color: #c0392b;    
         }
-        /* Modal, Minecraft Elements 和 Keyframe 动画样式保持不变... */
-        /* ... */
+
+        /* ----- Modal (Image Zoom) Styles ----- */
+        #image-modal {
+            display: none; 
+            position: fixed;    
+            z-index: 1000;
+            padding-top: 50px;
+            left: 0;
+            top: 0;
+            width: 100%;    
+            height: 100%;    
+            overflow: auto;
+            background-color: rgba(0,0,0,0.9);
+            backdrop-filter: blur(5px);    
+            transition: opacity 0.3s ease;
+        }
+
+        .modal-content {
+            margin: auto;
+            display: block;
+            width: 90%;
+            max-width: 800px;
+            border-radius: 5px;
+            animation-name: zoom;
+            animation-duration: 0.3s;
+        }
+
+        /* 关闭按钮 */
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+            cursor: pointer;
+            text-shadow: 0 0 5px black;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #bbb;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        @keyframes zoom {
+            from {transform: scale(0)}    
+            to {transform: scale(1)}
+        }
+        /* ------------------------------------- */
+
+        /* Minecraft Elements for Falling Animation */
+        .minecraft-entity {
+            position: fixed;
+            background-size: contain;    
+            background-repeat: no-repeat;
+            pointer-events: none;
+            z-index: 1;
+            opacity: 0.15;
+            animation: fallAndFade var(--duration, 15s) linear infinite;
+        }
+        /* Specific sizes and images for different elements */
+        .block {    
+            width: 50px; height: 50px;    
+            background-image: url('https://d31sxl6qgne2yj.cloudfront.net/wordpress/wp-content/uploads/20190102094849/Minecraft-Grass-Block.jpg'); /* Grass */
+        }
+        .creeper {    
+            width: 70px; height: 70px;    
+            background-image: url('https://i.pinimg.com/736x/8c/d0/4b/8cd04b7e55f1050a80ac52b3241d707d.jpg'); /* Creeper */
+        }
+        .steve {    
+            width: 80px; height: 100px;    
+            background-image: url('https://s.namemc.com/3d/skin/body.png?id=12b92a9206470fe2&model=classic&width=308&height=308'); /* Steve */
+        }
+        .zombie {    
+            width: 60px; height: 90px;    
+            background-image: url('https://preview.free3d.com/img/2016/03/1875487412218496644/7dkv76j9.jpg'); /* Zombie */
+        }
+
+        .falling-element {
+            position: absolute;
+            opacity: 0;
+            top: -150px;
+        }
         
-        /* Keyframe Animations (保持不变) */
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        /* Keyframe Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
         @keyframes popIn {
             from { transform: scale(0.8); opacity: 0; }
             to { transform: scale(1); opacity: 1; }
@@ -216,10 +303,10 @@
                 opacity: 0;
                 left: var(--start-left);
             }
-            10% { opacity: 0.3; } 
+            10% { opacity: 0.3; }    
             90% { opacity: 0.1; }
             100% {
-                transform: translateY(calc(100vh + 150px)) rotate(720deg); 
+                transform: translateY(calc(100vh + 150px)) rotate(720deg);    
                 opacity: 0;
             }
         }
@@ -228,7 +315,7 @@
 <body onload="loadData()">
 
 <div class="container">
-    <h1 id="server-title">🚀 [服务器名称] 模组服安装指南 (NeoForge)</h1>
+    <h1 id="server-title">🚀 正在加载服务器信息...</h1>
 
     <p>欢迎来到我们的私密服务器！本指南将详细教您如何安装 **NeoForge 核心** 和所有必需的**模组**。您可以选择使用 **官方启动器** 或 **PCL2 启动器** 来完成安装。</p>
     <p class="important"><strong>请注意：</strong> 我们的服务器核心版本为 <strong>Minecraft <span id="mc-version">[版本号]</span></strong>，请确保所有安装都基于此版本。</p>
@@ -349,7 +436,7 @@
 
         <p><strong>4.2 加入多人游戏：</strong></p>
         <p>进入 Minecraft 主菜单后，点击 **“多人游戏 (Multiplayer)”**。</p>
-        <img class="screenshot" src="" alt="Minecraft 主菜单点击多人游戏">
+        <img class="screenshot" src="images/mc_multiplayer.jpg" alt="Minecraft 主菜单点击多人游戏">
 
         <p><strong>4.3 添加服务器：</strong></p>
         <p>点击底部的 **“添加服务器 (Add Server)”**，然后输入以下信息：</p>
@@ -357,7 +444,7 @@
             <li>**服务器名称：** <code id="server-name-display">[服务器名称]</code></li>
             <li>**服务器地址：** <code id="server-ip-display">[服务器 IP 地址]</code></li>
         </ul>
-        <img class="screenshot" src="" alt="添加服务器界面，填写 IP 地址">
+        <img class="screenshot" src="images/mc_add_server.jpg" alt="添加服务器界面，填写 IP 地址">
 
         <p><strong>4.4 开始游戏！</strong></p>
         <p>点击 **“完成”**，选中您的服务器，点击 **“加入服务器”** 即可！</p>
@@ -372,11 +459,26 @@
         <p>这是您加入服务器的 **游戏账号**。请访问 Little Skin 官网注册。</p>
         <ol>
             <li>访问 <a id="link-littleskin" href="#" target="_blank">Little Skin 官网</a>。</li>
-            </ol>
+        </ol>
+        <img class="screenshot" src="pic/littleskin.png" alt="Little Skin 注册页面">
 
         <h3>5.2 PCL2 启动器登录设置 (必须使用 PCL2)</h3>
         <p>您必须在 PCL2 启动器中选择 Little Skin 认证才能进入服务器。</p>
-        </div>
+
+        <ol>
+            <li>点击 PCL2 启动器左下的 **“版本设置”** 按钮。</li>
+            <img class="screenshot" src="pic/login1.png" alt="点击底部的 版本设置按钮">
+            <li>选择 **“第三方认证”**，认证服务器选择 **“Little Skin (小黑皮肤站)”**。</li>
+            <img class="screenshot" src="pic/login2.png" alt="选择第三方认证界面">
+            <img class="screenshot" src="pic/login3.png" alt="确认">
+            <img class="screenshot" src="pic/login3.1.png" alt="确认">
+            <li>输入您在 5.1 步注册的 Little Skin **用户名** 和 **密码**，点击登录。</li>
+        </ol>
+        <p class="important">官方启动器本身不支持 Little Skin 认证。请确保您在 PCL2 中完成了这一步设置。</p>
+        <img class="screenshot" src="pic/login4.png" alt="PCL2 启动器选择 Little Skin 登录界面">
+
+        <p>完成设置后，请返回 **第四步** 启动游戏。</p>
+    </div>
 </div>
 
 <div id="image-modal">
@@ -386,7 +488,7 @@
 
 
 <script>
-    // --- 数据加载函数 (新增) ---
+    // --- 数据加载函数 (从 config.json 和 modlist.json 读取) ---
     async function loadData() {
         try {
             // 1. 读取 config.json
@@ -402,14 +504,16 @@
 
             document.getElementById('page-title').textContent = `如何安装 Minecraft、Mod (NeoForge) 并加入 ${server.name}`;
             document.getElementById('server-title').innerHTML = `🚀 ${server.name} 模组服安装指南 (NeoForge)`;
+            
+            // 填充所有的占位符文本
             document.getElementById('mc-version').textContent = server.version;
             document.getElementById('neoforge-mc-version').textContent = server.version;
             document.getElementById('pcl2-mc-version').textContent = server.version;
             document.getElementById('server-name-display').textContent = server.name;
             document.getElementById('server-ip-display').textContent = server.ip;
             
-            document.getElementById('java-version').textContent = server.javaVersion;
-            document.getElementById('java-version-link').textContent = server.javaVersion;
+            document.getElementById('java-version').textContent = server.javaVersion || '21';
+            document.getElementById('java-version-link').textContent = server.javaVersion || '21';
 
 
             // 4. 渲染链接
@@ -424,22 +528,26 @@
             const modListContainer = document.getElementById('mod-list-container');
             let html = '';
             modlist.forEach(mod => {
+                // 确保 modlist.json 结构是 [{name: "Mod Name", description: "Description"}, ...]
                 html += `<li><strong>${mod.name}</strong> - ${mod.description}</li>`;
             });
             modListContainer.innerHTML = html;
-            document.getElementById('mod-count').textContent = modlist.length;
             
+            // 更新模组数量
+            const modCountElement = document.getElementById('mod-count');
+            modCountElement.textContent = modlist.length;
+
             // 6. 初始化折叠功能（必须在内容加载后）
             initCollapsible();
 
         } catch (error) {
-            console.error('加载数据失败，请检查 config.json 或 modlist.json 是否存在于根目录且格式正确：', error);
-            // 可以在这里显示一个错误提示给用户
-            document.getElementById('server-title').textContent = '⚠️ 载入数据失败，请联系管理员！';
+            console.error('⚠️ 载入数据失败，请检查 config.json 或 modlist.json 是否存在于根目录且格式正确：', error);
+            // 显示错误信息
+            document.getElementById('server-title').textContent = '⚠️ 载入数据失败，请检查文件！';
         }
     }
     
-    // --- 模组列表折叠功能 JS (改为函数) ---
+    // --- 模组列表折叠功能 JS ---
     function initCollapsible() {
         const collapsibleButton = document.querySelector('.collapsible');
         const content = document.querySelector('.collapsible-content');
@@ -455,8 +563,7 @@
         });
     }
 
-
-    // --- 图片放大功能 JS (保持不变) ---
+    // --- 图片放大功能 JS ---
     const modal = document.getElementById('image-modal');
     const modalImg = document.getElementById("modal-image");
     const closeBtn = document.getElementsByClassName("close")[0];
@@ -486,9 +593,12 @@
     }
 
 
-    // --- Minecraft 掉落动画 JS (保持不变) ---
+    // --- Minecraft 掉落动画 JS ---
     const entityTypes = [
-        'block', 'creeper', 'steve', 'zombie'
+        'block',
+        'creeper',
+        'steve',
+        'zombie'
     ];
 
     function createFallingEntity() {
@@ -500,8 +610,8 @@
         const startLeft = Math.random() * 100;
         entity.style.setProperty('--start-left', `${startLeft}vw`);
 
-        const duration = 12 + Math.random() * 8; 
-        const delay = Math.random() * 6; 
+        const duration = 12 + Math.random() * 8;    
+        const delay = Math.random() * 6;    
         entity.style.animationDuration = `${duration}s`;
         entity.style.animationDelay = `${delay}s`;
 
@@ -512,10 +622,11 @@
         });
     }
 
+    // 初始创建一些实体，然后间隔创建
     for (let i = 0; i < 10; i++) {
         createFallingEntity();
     }
-    setInterval(createFallingEntity, 1200); 
+    setInterval(createFallingEntity, 1200);    
 </script>
 
 </body>
