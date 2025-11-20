@@ -8,8 +8,9 @@
     "links": {
         "javaDownload": "https://www.oracle.com/java/technologies/javase/jdk21-archive-downloads.html",
         "neoforgeDownload": "https://neoforged.net/",
-        "modpackDownload": "[您的模组压缩包或文件夹的分享链接]",
+        "modpackDownload": "https://drive.google.com/file/d/1tdOHpdsXfXSi26an1pqi44hcpi9AUOd3/view?usp=drivesdk",
         "pcl2Download": "https://github.com/PCL-Community/PCL2-CE",
         "littleSkinWebsite": "https://littleskin.cn/"
     }
+
 }
